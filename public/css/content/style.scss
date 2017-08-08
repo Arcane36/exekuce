@@ -1,0 +1,501 @@
+//Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+
+//Modules
+@import "../modules/mixins";
+@import "../modules/variables";
+
+//Layout
+@import "../layout/menu";
+@import "../layout/footer";
+
+//Content
+@import "order";
+
+html {
+    position: relative;
+    height: 100%;
+    font-size: 62.5%;
+}
+body {
+    display: flex; /*STICKY FOOTER*/
+    min-height: 100%; /*STICKY FOOTER*/
+    flex-direction: column; /*STICKY FOOTER*/
+}
+
+.content {
+    flex: 1; /*STICKY FOOTER*/
+    -ms-flex: 1 0 auto; /*STICKY FOOTER*/
+
+    &.greybg{
+        background-color: $main_grey;
+    }
+}
+
+html, body {
+    background-color: $main_blue;
+    //"Candara Regular", "Myriad Arabic Pro",
+    font-family: "Open Sans","Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+}
+
+.header {
+    margin: 0 0 80px 0;
+    //border: 1px solid $main_blue_hover;
+    //background-color: #2975cb;
+
+    ::selection {
+        background-color: $font_color_yellow;
+    }
+
+    &__header-claim {
+        text-align: center;
+        @include font-size(75px);
+        color: $main_white;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        //border-bottom: 2px solid $main_white;
+        //max-width: 525px;
+        margin: 0 auto;
+        text-shadow: 0 2px 2px #000000;
+        float: initial;
+    }
+
+}
+
+.form-header {
+    text-align: center;
+
+    &__label_choices {
+        padding: 30px 0 30px 0;
+    }
+
+    &__label {
+        @include font-size(25px);
+        font-weight: 600;
+        color: $font_color_yellow;
+        padding: 14px 45px;
+        margin-bottom: 0;
+        cursor: pointer;
+
+        &.left-label {
+            display: block;
+            text-align: left;
+            padding: 0 0 5px 0;
+        }
+    }
+
+    &__divider {
+        color: $main_white;
+        @include font-size(45px);
+        padding: 0 40px 0 40px;
+    }
+
+    &__fs_person {
+        margin-bottom: 45px;
+    }
+
+    &__fs_ic {
+        display: none;
+        margin-bottom: 45px;
+    }
+
+    &__block {
+        float: left;
+        margin-bottom: 30px;
+
+        &:first-child {
+            margin-left: 137px;
+
+            @media screen and (max-width: 1199px){
+                margin-left: 28px;
+            }
+
+            @media screen and (max-width: 992px){
+                margin-left: 0;
+            }
+        }
+
+        &.ico {
+            display: inline-block;
+            margin-left: 0;
+            float: none;
+        }
+    }
+
+    &__input_radio {
+        display: none;
+
+        &:checked + label {
+            background-color: $main_blue_hover;
+        }
+    }
+
+    &__input_text {
+        @include font-size(35px);
+        padding: 15px 13px 10px 15px;
+        display: block;
+        animation: custom_anim 500ms ease-in;
+        width: 265px;
+        @include border_radius(0);
+
+        &:focus {
+            outline-width: 0;
+        }
+    }
+
+    &__terms {
+        color: $main_white;
+        @include font-size(22px);
+        font-weight: 200;
+    }
+
+    &__terms_a {
+        color: $font_color_yellow;
+        &:hover {
+            color: $font_color_yellow;
+        }
+    }
+
+    &__input_checkbox {
+        width: 15px;
+        height: 15px;
+        border: 0;
+        background-color: white;
+        padding-top: 20px !important;
+        position: relative;
+        top: 3px;
+    }
+
+
+}
+
+input + .error {
+    background-color: $main_orange;
+    line-height: 22px;
+    @include font-size(20px);
+    padding: 5px 12px;
+    text-align: right;
+    color: white;
+    width: 265px;
+
+    @media screen and (max-width: 991px){
+        width: 100%;
+    }
+}
+
+input + label + .error {
+    background-color: $main_orange;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    line-height: 22px;
+    @include font-size(20px);
+    margin: 0 auto;
+    width: 265px;
+}
+
+.errorHighlight {
+    border: 3px solid $main_orange;
+}
+
+@media screen and (max-width: 991px) {
+    .form-header__input_text {
+        display: block;
+        width: 100%;
+    }
+
+    .form-header__block {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 595px){
+    .header__header-claim {
+        @include font-size(45px);
+        padding-bottom: 0;
+    }
+
+    .form-header__divider {
+        display: none;
+    }
+}
+
+.button {
+    display: block;
+    margin: 20px auto 20px auto;
+    border: 0;
+    color: $main_white;
+    background-color: $main_orange;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 266px;
+    height: 60px;
+    text-align: center;
+    @include font-size(35px);
+
+    &.bot {
+        margin: 20px auto 0 auto;
+    }
+}
+
+.card {
+    background-color: $main_white;
+    margin: 0;
+    padding: 60px 0 60px 0;
+    clear: both;
+
+    &:nth-child(odd) {
+        background-color: $main_grey;
+    }
+
+    &__headline {
+        color: $main_blue;
+        border-bottom: 2px solid $main_blue;
+        padding: 0 0 10px 0;
+        margin: 0 0 60px 0;
+    }
+
+    &.fixed {
+        padding: 0 0 90px 0;
+        background-color: $main_grey;
+    }
+}
+
+
+.subsection {
+    padding-bottom: 20px;
+    &__header {
+        background: url("../../img/Checked-50.png") no-repeat;
+        padding: 10px 0 10px 60px;
+        color: $main_blue;
+        @include font-size(35px);
+
+        &-alt {
+            padding: 0 0 10px 0;
+            background: none;
+            text-align: center;
+        }
+    }
+
+    &__content {
+        color: $font_color_grey;
+        @include font-size(25px);
+        padding: 0 0 0 60px;
+
+        &-alt {
+            padding: 0 0 20px 0;
+            text-align: center;
+        }
+
+        &-alt_fixed {
+            padding: 0 0 20px 0;
+            min-height: 70px;
+            text-align: center;
+        }
+
+    }
+
+}
+
+.screenshot {
+    -webkit-box-shadow: 0 10px 38px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 10px 38px -12px rgba(0,0,0,0.75);
+    box-shadow: 0 10px 38px -12px rgba(0,0,0,0.75);
+    margin: 0 0 20px 0;
+    height: auto;
+    width: 100%;
+}
+
+.faq_icon {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+}
+
+.graph_header {
+    color: $main_blue;
+    @include font-size(35px);
+    text-align: center;
+}
+
+#piechart_3d {
+    margin: 0 auto;
+    height: 400px;
+    width: 100%;
+}
+
+.accordion {
+    background-color: $font_color_light_grey;
+    color: black;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    @include font-size(35px);
+    animation: custom_anim 500ms ease-in;
+
+    &:hover, &.active{
+        background-color: $main_blue_hover;
+        color: $main_white;
+    }
+
+    &:after {
+        font-family: 'FontAwesome';
+        content: "\f078";
+        @include font-size(35px);
+        color: black;
+        float: right;
+
+    }
+
+    &.active:after {
+        content: "\f054";
+        @include font-size(35px);
+        color: $main_white;
+    }
+
+}
+
+
+.panel {
+    padding: 0 18px;
+    background-color: $main_white;
+    max-height: 0;
+    overflow: hidden;
+    animation: custom_anim 500ms ease-in;
+    display: none;
+
+    &__content {
+        @include font-size(30px);
+        padding: 20px;
+        text-align: justify;
+    }
+}
+
+.show {
+    display: block;
+    max-height: 500px;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+    margin-bottom: -60px;
+}
+
+.contact {
+    &__label {
+        display: block;
+        @include font-size(35px);
+        color: $main_blue;
+    }
+
+    &__input_text {
+        width: 100%;
+        max-width: 100%;
+        @include font-size(35px);
+        padding: 15px 0 10px 15px;
+        margin: 0 0 25px 0;
+    }
+
+    &__textarea {
+        width: 100%;
+        @include font-size(35px);
+        padding: 15px 0 10px 15px;
+        margin: 0 0 15px 0;
+        resize: vertical;
+        min-height: 200px;
+    }
+}
+
+/* The Modal (background) */
+.modal-w {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+
+    &__content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        width: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s;
+
+        @media screen and (max-width: 991px){
+            width: 80%;
+        }
+    }
+
+    &__header {
+        padding: 2px 16px;
+        background-color: $main_blue;
+        color: white;
+    }
+
+    &__h2 {
+        @media screen and (max-width: 991px){
+            @include font-size(30px);
+        }
+    }
+
+    &__body {
+        padding: 2px 16px;
+        max-height: 500px;
+        overflow-y: scroll;
+        text-align: justify;
+
+        @media screen and (max-width: 550px){
+            max-height: 250px;
+        }
+    }
+
+    &__footer {
+        padding: 2px 16px;
+        color: white;
+    }
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: relative;
+    right: 10px;
+    top: 10px;
+
+    &:hover, &:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

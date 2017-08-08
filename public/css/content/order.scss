@@ -1,0 +1,239 @@
+/*Stylesheet responsible for order pages*/
+
+//Content
+.order {
+    margin: 0 auto;
+    background-color: white;
+    &__progress {
+        padding: 0;
+        margin: 0 auto;
+        font-size: 0; /* inline block space fix*/
+    }
+
+    &__subprogress {
+        list-style-type: none;
+        display: inline-block;
+        width: 25%;
+        height: 60px;
+        text-align: left;
+        color: $main_blue;
+        @include font-size(30px);
+        font-weight: 600;
+        line-height: 40px;
+        padding: 10px 10px 10px 80px;
+        border-bottom: 4px solid $main_blue_hover;
+        border-left: 1px solid $main_blue_hover;
+
+        @media screen and (max-width: 992px) {
+            width: 100%;
+            border: none;
+            text-align: center;
+        }
+
+        //&:first-child {
+        //    border-left: 4px solid $main_blue_hover;
+        //}
+        //&:last-child {
+        //    border-right: 4px solid $main_blue_hover;
+        //}
+
+        &--info {
+            background: url("../../img/Contacts Filled-50.png") $main_grey no-repeat 15px 2px;
+            &.active {
+                background: url("../../img/Contacts-50.png") $main_blue_hover no-repeat 15px 2px;
+                color: white;
+            }
+        }
+        &--payment {
+            background: url("../../img/Money Filled-50.png") $main_grey no-repeat 15px 2px;
+            &.active {
+                background: url("../../img/Money-50.png") $main_blue_hover no-repeat 15px 2px;
+                color: white;
+            }
+        }
+        &--result {
+            background: url("../../img/News Filled-50.png") $main_grey no-repeat 15px 2px;
+            &.active {
+                background: url("../../img/News-50.png") $main_blue_hover no-repeat 15px 2px;
+                color: white;
+            }
+        }
+
+    }
+
+    &__headline {
+        color: $main_blue;
+        @include font-size(45px);
+        text-align: center;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 30px 0 30px 0;
+        border-bottom: 2px dashed $main_grey;
+    }
+
+}
+
+.dialog {
+    margin: 30px 0;
+    &__header {
+        color: $main_blue;
+        float: right;
+        text-transform: uppercase;
+        width: 60%;
+        @include font-size(26px);
+        padding: 10px 0 10px 0;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 23px;
+            background: url("../../img/Checked Checkbox 2-25.png") no-repeat 0 0;
+        }
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+    }
+
+    &__section {
+        background-color: $main_grey;
+        width: 60%;
+        padding: 10px 30px;
+        float: right;
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            width: 85%;
+        }
+
+    }
+
+    &__subsection {
+        list-style-type: none;
+        padding: 5px 0;
+        text-align: left;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 23px;
+            background: url("../../img/Checkmark-25.png") no-repeat 0 0;
+        }
+
+    }
+}
+
+.form_order {
+    &__header {
+        color: $main_blue;
+        float: left;
+        text-transform: uppercase;
+        @include font-size(26px);
+        padding: 10px 55px 10px 0;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 24px;
+            background: url("../../img/Contacts-25.png") no-repeat 0 0;
+        }
+
+        @media screen and (max-width: 991px) {
+            float: none;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+            padding-right: 0;
+        }
+    }
+
+    &__input {
+        display: block;
+        width: 60%;
+        height: 40px;
+        margin-bottom: 25px;
+        padding-left: 10px;
+
+        @media screen and (max-width: 991px){
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.price {
+    text-align: center;
+    &__text {
+        @include font-size(30px);
+    }
+
+    &__disclaimer {
+        color: $font_color_grey;
+        @include font-size(15px);
+    }
+}
+
+.tip {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    left: 5px;
+    top: -5px;
+    background: url("../../img/Info Filled-20.png") no-repeat;
+
+    &:hover .tooltiptext {
+        visibility: visible;
+    }
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: $main_blue_hover;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    @include font-size(20px);
+
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -125px; /* Use half of the width (120/2 = 60), to center the tooltip */
+
+    @media screen and (max-width: 500px){
+        width: 150px;
+    }
+
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip */
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: $main_blue_hover transparent transparent transparent;
+
+        @media screen and (max-width: 500px){
+            left: 85%;
+        }
+    }
+}
